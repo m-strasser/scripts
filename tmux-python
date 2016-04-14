@@ -5,7 +5,7 @@ PYTHONDIR=~/dev/python
 
 if [ $# -eq 0 ]; then
 	echo "No project name given"
-	echo "usage: python.tmux PROJECT_NAME"
+	echo "usage: $0 PROJECT_NAME"
 	exit 1
 fi
 
