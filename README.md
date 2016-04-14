@@ -1,2 +1,2 @@
 # scripts
-Varying utility scripts - mostly in Shellscript
+I *suck* at shellscripting - use at your own risk
