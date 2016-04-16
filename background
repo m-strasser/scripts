@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ -f $HOME/.light_background ]; then
+	echo "Setting dark background..."
+	xrdb -merge ~/.Xresources_dark
+	cp $HOME/.dotfiles/.zshrc $HOME/.dotfiles/.zshrc.bak
+	cp $HOME/.dotfiles/.zshrc_dark $HOME/.dotfiles/.zshrc
+	source ~/.dotfiles/.zshrc
+	rm $HOME/.light_background
+else
+	echo "Setting light background..."
+	xrdb -merge ~/.Xresources_light
+	cp $HOME/.dotfiles/.zshrc $HOME/.dotfiles/.zshrc.bak
+	cp $HOME/.dotfiles/.zshrc_light $HOME/.dotfiles/.zshrc
+	source ~/.dotfiles/.zshrc
+	BACKGROUND="light"
+	touch $HOME/.light_background
+fi
