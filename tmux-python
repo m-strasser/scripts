@@ -15,7 +15,13 @@ if [ ! -d "$PYTHONDIR/$PROJECT" ]; then
 	echo "No project with that name. Existing projects: "
 	ls -d $PYTHONDIR/*
 	echo ""
-	exit 1
+	read -p "Do you want to create $PROJECT? [Y/n]" answer
+
+	case $answer in
+		[Yy]* ) virtualenv $PYTHONDIR/$PROJECT; break;;
+		[Nn]* ) echo "Ok! Bye."; exit 1; break;;
+		* ) virtualenv $PYTHONDIR/$PROJECT; break;;
+	esac
 fi
 
 if [ -n $TMUX ]; then
