@@ -26,10 +26,10 @@ if [ ! -d "$PROJPATH" ]; then
 fi
 
 if [ -n $TMUX ]; then
-	tmux new -c $PROJPATH -s $PROJECT vim $PROJECT
+	tmux new -c $PROJPATH -s $PROJECT vim .
 elif ! `tmux has-session -t $PROJECT` ; then
 	echo "creating session $PROJECT"
-	tmux new-session -d -c $PROJPATH -s $PROJECT vim $PROJECT
+	tmux new-session -d -c $PROJPATH -s $PROJECT vim .
 fi
 
 #tmux switch-client -t $PROJECT
