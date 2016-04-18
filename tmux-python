@@ -10,25 +10,26 @@ if [ $# -eq 0 ]; then
 fi
 
 PROJECT=$1
+PROJPATH="$PYTHONDIR/$PROJECT"
 
-if [ ! -d "$PYTHONDIR/$PROJECT" ]; then
+if [ ! -d "$PROJPATH" ]; then
 	echo "No project with that name. Existing projects: "
 	ls -d $PYTHONDIR/*
 	echo ""
 	read -p "Do you want to create $PROJECT? [Y/n]" answer
 
 	case $answer in
-		[Yy]* ) virtualenv $PYTHONDIR/$PROJECT; break;;
+		[Yy]* ) virtualenv $PROJPATH; break;;
 		[Nn]* ) echo "Ok! Bye."; exit 1; break;;
-		* ) virtualenv $PYTHONDIR/$PROJECT; break;;
+		* ) virtualenv $PROJPATH; break;;
 	esac
 fi
 
 if [ -n $TMUX ]; then
-	tmux new -c $PYTHONDIR -s $PROJECT vim $PROJECT
+	tmux new -c $PROJPATH -s $PROJECT vim $PROJECT
 elif ! `tmux has-session -t $PROJECT` ; then
 	echo "creating session $PROJECT"
-	tmux new-session -d -c $PYTHONDIR -s $PROJECT vim $PROJECT
+	tmux new-session -d -c $PROJPATH -s $PROJECT vim $PROJECT
 fi
 
 #tmux switch-client -t $PROJECT
