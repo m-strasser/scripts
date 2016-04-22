@@ -16,7 +16,7 @@ if [ ! -d "$PROJPATH" ]; then
 	echo "No project with that name. Existing projects: "
 	ls -d $PYTHONDIR/*
 	echo ""
-	read -p "Do you want to create $PROJECT? [Y/n]" answer
+	read -p "Do you want to create $PROJECT? [Y/n] " answer
 
 	case $answer in
 		[Yy]* ) virtualenv $PROJPATH; break;;
