@@ -8,3 +8,4 @@ fi
 
 xrandr --output HDMI1 --auto --above eDP1
 tint2 -c /home/mstrasser/.config/tint2/single-monitor &
+volumeicon&
