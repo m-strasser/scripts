@@ -1,0 +1,8 @@
+#!/bin/sh
+
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+URL="https://sepm.thedigit.net/git/notifyCommit?url=https://reset.inso.tuwien.ac.at/redmine/git/ss16_sepm_inso_21.git&branches=$BRANCH"
+
+echo "Notifying jenkins for branch $BRANCH"
+curl -s -o jenkins_response_$BRANCH.txt $URL
+echo "Notified jenkins. Response is saved in jenkins_response_$BRANCH"
