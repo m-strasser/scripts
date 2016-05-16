@@ -1,0 +1,12 @@
+#!/bin/sh
+pacman -Q | awk '{print $1}' > ~/.pkglist
+
+SOURCES=(/root /etc /home /boot /srv)
+TARGET=(/mnt/lenovo_arch)
+
+RSYNCCONF=(--delete)
+
+for SOURCE in "${SOURCES[@]}"
+do
+	sudo rsync -avP $RSYNCCONF $SOURCE $TARGET
+done
