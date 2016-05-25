@@ -9,3 +9,4 @@ fi
 xrandr --output HDMI1 --auto --above eDP1
 tint2 -c /home/mstrasser/.config/tint2/multi-monitor &
 volumeicon&
+feh --bg-scale $HOME/wallpaper.jpg
