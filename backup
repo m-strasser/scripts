@@ -1,4 +1,7 @@
 #!/bin/sh
+sudo cryptsetup open /dev/sdb1 externe
+sudo mount /dev/mapper/externe /mnt/
+
 pacman -Q | awk '{print $1}' > ~/.pkglist
 
 SOURCES=(/root /etc /home /boot /srv)
